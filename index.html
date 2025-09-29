@@ -1,186 +1,563 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>John Doe - Portfolio</title>
+    <title>Your Name - Engineering Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      /* Custom style for the 3D card effect */
+      .perspective-card {
+        transform-style: preserve-3d;
+        transition: transform 0.1s ease-out;
+      }
+      /* Keyframes for infinite scroll (if still used) */
+      @keyframes infinite-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+      /* Keyframes for animated gradient background */
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 0%; /* Start top-left */
+          background-size: 300% 300%; /* Start larger */
+        }
+        25% {
+          background-position: 100% 0%; /* Move top-right */
+          background-size: 400% 400%; /* Grow more */
+        }
+        50% {
+          background-position: 100% 100%; /* Move bottom-right */
+          background-size: 500% 500%; /* Max size */
+        }
+        75% {
+          background-position: 0% 100%; /* Move bottom-left */
+          background-size: 400% 400%; /* Shrink back */
+        }
+        100% {
+          background-position: 0% 0%; /* Back to start */
+          background-size: 300% 300%; /* Back to start size */
+        }
+      }
+    </style>
   </head>
-  <body class="bg-gray-100 text-gray-800 font-sans">
-    <!-- Navigation Bar -->
-    <nav class="bg-white shadow-md">
+  <body class="bg-slate-950 text-gray-300 font-sans">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-sm shadow-md shadow-black/20"
+    >
       <div
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
+        class="container mx-auto max-w-4xl px-6 py-4 flex justify-between items-center"
       >
-        <a href="#" class="font-bold text-2xl text-blue-600">JD</a>
-        <div class="hidden md:flex space-x-6">
-          <a
-            href="#about"
-            class="text-gray-600 hover:text-blue-600 transition duration-300"
+        <a href="/" class="text-2xl font-bold text-white tracking-wider"
+          >YOUR_LOGO</a
+        >
+        <div class="flex space-x-8 text-gray-300">
+          <a href="#about-detailed" class="hover:text-red-500 transition-colors"
             >About</a
           >
-          <a
-            href="#projects"
-            class="text-gray-600 hover:text-blue-600 transition duration-300"
+          <a href="#projects" class="hover:text-red-500 transition-colors"
             >Projects</a
           >
-          <a
-            href="#contact"
-            class="text-gray-600 hover:text-blue-600 transition duration-300"
-            >Contact</a
-          >
         </div>
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
-          <button
-            id="mobile-menu-button"
-            class="text-gray-600 focus:outline-none"
-          >
-            <i class="fas fa-bars fa-lg"></i>
-          </button>
-        </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-        <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600"
-          >About</a
-        >
-        <a href="#projects" class="block py-2 text-gray-600 hover:text-blue-600"
-          >Projects</a
-        >
-        <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600"
-          >Contact</a
-        >
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="about" class="bg-blue-600 text-white text-center py-20">
-      <div class="container mx-auto px-6">
-        <img
-          src="https://via.placeholder.com/150"
-          alt="Profile Picture"
-          class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-lg"
-        />
-        <h1 class="text-4xl md:text-5xl font-bold">John Doe</h1>
-        <p class="mt-4 text-lg md:text-xl">
-          A Passionate Web Developer from Planet Earth.
-        </p>
       </div>
     </header>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project Card 1 -->
+    <main>
+      <!-- Hero Section / About Me -->
+      <section
+        id="about"
+        class="h-screen flex items-center justify-center p-4 -mt-16"
+      >
+        <!-- Animated Background Layer -->
+        <div
+          class="absolute inset-0 z-0"
+          style="
+            background: radial-gradient(
+                circle at 20% 80%,
+                rgba(239, 68, 68, 0.3) 0%,
+                /* Increased opacity */ transparent 50%
+              ),
+              radial-gradient(
+                circle at 80% 20%,
+                rgba(100, 116, 139, 0.3) 0%,
+                /* Increased opacity */ transparent 50%
+              );
+            background-size: 300% 300%; /* Match 0% keyframe */
+            animation: gradient-animation 45s ease infinite; /* Slower, calmer duration */
+          "
+        ></div>
+        <a href="#about-detailed">
           <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+            id="card-container"
+            class="w-full max-w-2xl transition-transform duration-300 ease-in-out hover:scale-105"
+            style="perspective: 1000px"
           >
-            <img
-              src="https://via.placeholder.com/400x250"
-              alt="Project 1"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Project One</h3>
-              <p class="text-gray-600 mb-4">
-                A brief description of the project, highlighting the
-                technologies used and its purpose.
-              </p>
-              <a href="#" class="text-blue-600 hover:underline">View Project</a>
+            <!-- The "Metal" Business Card -->
+            <div
+              id="card"
+              class="perspective-card relative z-10 w-full p-8 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl shadow-2xl shadow-black/50 border border-gray-600 flex space-x-6 aspect-[2/1]"
+            >
+              <!-- Profile Picture -->
+              <div class="flex-shrink-0 h-full">
+                <img
+                  src="./premium_photo-1690407617542-2f210cf20d7e.avif"
+                  alt="Profile Picture"
+                  class="h-full object-cover rounded-l-2xl"
+                  style="
+                    mask-image: linear-gradient(
+                      to right,
+                      black 40%,
+                      transparent 100%
+                    );
+                    -webkit-mask-image: linear-gradient(
+                      to right,
+                      black 40%,
+                      transparent 100%
+                    );
+                  "
+                />
+              </div>
+
+              <!-- Card Details -->
+              <div class="flex flex-1 flex-col justify-between">
+                <div>
+                  <h1 class="text-3xl font-bold text-white">Your Name</h1>
+                  <p class="text-red-500 font-semibold text-lg mt-1">
+                    Mechanical Engineer
+                  </p>
+                  <p class="mt-4 text-gray-400">
+                    A brief, compelling description about your passion for
+                    engineering and the kind of work you do.
+                  </p>
+                </div>
+                <!-- Social Media & CTA -->
+                <div class="flex items-center">
+                  <div class="grid grid-cols-3 gap-x-6">
+                    <a
+                      href="#"
+                      class="text-gray-400 flex justify-center hover:text-red-500 transition-colors duration-300"
+                      ><i class="fab fa-github fa-lg"></i
+                    ></a>
+                    <a
+                      href="#"
+                      class="text-gray-400 flex justify-center hover:text-red-500 transition-colors duration-300"
+                      ><i class="fab fa-linkedin fa-lg"></i
+                    ></a>
+                    <a
+                      href="#"
+                      class="text-gray-400 flex justify-center hover:text-red-500 transition-colors duration-300"
+                      ><i class="fas fa-envelope fa-lg"></i
+                    ></a>
+                  </div>
+
+                  <a
+                    href="#projects"
+                    class="ml-auto inline-block bg-red-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg shadow-red-900/50 hover:bg-red-700 transition-all duration-300 transform hover:scale-105"
+                  >
+                    My Projects
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- Project Card 2 -->
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
-          >
-            <img
-              src="https://via.placeholder.com/400x250"
-              alt="Project 2"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Project Two</h3>
-              <p class="text-gray-600 mb-4">
-                A brief description of the project, highlighting the
-                technologies used and its purpose.
-              </p>
-              <a href="#" class="text-blue-600 hover:underline">View Project</a>
-            </div>
-          </div>
-
-          <!-- Project Card 3 -->
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
-          >
-            <img
-              src="https://via.placeholder.com/400x250"
-              alt="Project 3"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Project Three</h3>
-              <p class="text-gray-600 mb-4">
-                A brief description of the project, highlighting the
-                technologies used and its purpose.
-              </p>
-              <a href="#" class="text-blue-600 hover:underline">View Project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="bg-gray-200 py-20">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
-        <p class="text-lg mb-8">
-          I'm currently available for freelance work. Feel free to reach out!
-        </p>
-        <a
-          href="mailto:email@example.com"
-          class="bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300"
-        >
-          Say Hello
         </a>
-        <div class="flex justify-center space-x-6 mt-8">
-          <a href="#" class="text-gray-600 hover:text-blue-600"
-            ><i class="fab fa-github fa-2x"></i
-          ></a>
-          <a href="#" class="text-gray-600 hover:text-blue-600"
-            ><i class="fab fa-linkedin fa-2x"></i
-          ></a>
-          <a href="#" class="text-gray-600 hover:text-blue-600"
-            ><i class="fab fa-twitter fa-2x"></i
-          ></a>
+      </section>
+
+      <!-- Detailed About Me Section -->
+      <section
+        id="about-detailed"
+        class="min-h-screen flex items-center bg-slate-900"
+      >
+        <div class="container mx-auto flex flex-col gap-16 px-6 max-w-4xl">
+          <!-- Upper Text Section -->
+          <div
+            class="text-gray-400 text-lg space-y-6 text-left md:text-justify"
+          >
+            <p>
+              This is where you can elaborate on your journey into engineering.
+              Talk about what sparked your interest, your educational
+              background, and the core principles that drive your work. You can
+              mention specific areas of engineering you are passionate about,
+              like robotics, thermodynamics, or material science.
+            </p>
+            <p>
+              Feel free to share a bit about your problem-solving philosophy.
+              How do you approach a new challenge? What methodologies do you
+              prefer? This is a great place to show your personality and your
+              professional mindset beyond just the technical skills.
+            </p>
+            <p>
+              You can also mention your career aspirations or what kind of
+              projects you are excited to work on in the future. This helps
+              potential employers or collaborators understand your long-term
+              goals.
+            </p>
+          </div>
+
+          <!-- Skills Section -->
+          <div>
+            <div
+              class="group relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+            >
+              <div
+                class="flex w-max animate-[infinite-scroll_40s_linear_infinite] group-hover:[animation-play-state:paused]"
+              >
+                <!-- Bubbles (List 1) -->
+                <div
+                  class="flex w-max items-center justify-center space-x-4 px-4"
+                >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >CAD/CAM</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Finite Element Analysis (FEA)</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Python</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >3D Printing</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Thermodynamics</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >MATLAB</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Circuit Design</span
+                  >
+                </div>
+                <!-- Bubbles (List 2 - for seamless loop) -->
+                <div
+                  class="flex w-max items-center justify-center space-x-4 px-4"
+                >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >CAD/CAM</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Finite Element Analysis (FEA)</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Python</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >3D Printing</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Thermodynamics</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >MATLAB</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Circuit Design</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lower Text Section -->
+          <div
+            class="text-gray-400 text-lg space-y-6 text-left md:text-justify"
+          >
+            <p>
+              This is where you can elaborate on your journey into engineering.
+              Talk about what sparked your interest, your educational
+              background, and the core principles that drive your work. You can
+              mention specific areas of engineering you are passionate about,
+              like robotics, thermodynamics, or material science.
+            </p>
+            <p>
+              Feel free to share a bit about your problem-solving philosophy.
+              How do you approach a new challenge? What methodologies do you
+              prefer? This is a great place to show your personality and your
+              professional mindset beyond just the technical skills.
+            </p>
+          </div>
+
+          <!-- See My Projects Button -->
+          <div class="text-center">
+            <a
+              href="#projects"
+              class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg shadow-red-900/50 hover:bg-red-700 transition-all duration-300 transform hover:scale-105"
+            >
+              See My Projects
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- Projects Section -->
+      <section
+        id="projects"
+        class="min-h-screen flex items-center bg-slate-950"
+      >
+        <div class="container mx-auto px-6 pt-24 pb-48">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Project Card 1 -->
+            <a
+              href="project.html"
+              class="group relative block aspect-[4/3] overflow-hidden rounded-lg border border-gray-700 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(239,68,68,0.6)]"
+            >
+              <img
+                src="https://via.placeholder.com/400x300/334155/ffffff?text=Project+Image"
+                alt="Project 1"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+              ></div>
+              <div class="relative flex h-full flex-col justify-end p-6">
+                <div
+                  class="transition-transform duration-500 ease-in-out group-hover:-translate-y-16"
+                >
+                  <h3 class="text-xl font-bold text-white">
+                    Project Title One
+                  </h3>
+                  <p class="text-sm text-gray-300">
+                    A short teaser for the project.
+                  </p>
+                </div>
+                <div
+                  class="absolute bottom-6 left-6 right-6 translate-y-full opacity-0 transition-all duration-500 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                  <p class="text-sm text-gray-300">
+                    More details appear here on hover, explaining the core
+                    concept or technology used.
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project Card 2 -->
+            <a
+              href="project.html"
+              class="group relative block aspect-[4/3] overflow-hidden rounded-lg border border-gray-700 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(239,68,68,0.6)]"
+            >
+              <img
+                src="https://via.placeholder.com/400x300/334155/ffffff?text=Project+Image"
+                alt="Project 2"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+              ></div>
+              <div class="relative flex h-full flex-col justify-end p-6">
+                <div
+                  class="transition-transform duration-500 ease-in-out group-hover:-translate-y-10"
+                >
+                  <h3 class="text-xl font-bold text-white">
+                    Project Title Two
+                  </h3>
+                  <p class="text-sm text-gray-300">
+                    A short teaser for the project.
+                  </p>
+                </div>
+                <div
+                  class="absolute bottom-6 left-6 right-6 translate-y-full opacity-0 transition-all duration-500 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                  <p class="text-sm text-gray-300">
+                    More details appear here on hover.
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project Card 3 -->
+            <a
+              href="project.html"
+              class="group relative block aspect-[4/3] overflow-hidden rounded-lg border border-gray-700 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(239,68,68,0.6)]"
+            >
+              <img
+                src="https://via.placeholder.com/400x300/334155/ffffff?text=Project+Image"
+                alt="Project 3"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+              ></div>
+              <div class="relative flex h-full flex-col justify-end p-6">
+                <div
+                  class="transition-transform duration-500 ease-in-out group-hover:-translate-y-10"
+                >
+                  <h3 class="text-xl font-bold text-white">
+                    Project Title Three
+                  </h3>
+                  <p class="text-sm text-gray-300">
+                    A short teaser for the project.
+                  </p>
+                </div>
+                <div
+                  class="absolute bottom-6 left-6 right-6 translate-y-full opacity-0 transition-all duration-500 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                  <p class="text-sm text-gray-300">
+                    More details appear here on hover.
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project Card 4 -->
+            <a
+              href="project.html"
+              class="group relative block aspect-[4/3] overflow-hidden rounded-lg border border-gray-700 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(239,68,68,0.6)]"
+            >
+              <img
+                src="https://via.placeholder.com/400x300/334155/ffffff?text=Project+Image"
+                alt="Project 4"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+              ></div>
+              <div class="relative flex h-full flex-col justify-end p-6">
+                <div
+                  class="transition-transform duration-500 ease-in-out group-hover:-translate-y-10"
+                >
+                  <h3 class="text-xl font-bold text-white">
+                    Project Title Four
+                  </h3>
+                  <p class="text-sm text-gray-300">
+                    A short teaser for the project.
+                  </p>
+                </div>
+                <div
+                  class="absolute bottom-6 left-6 right-6 translate-y-full opacity-0 transition-all duration-500 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                  <p class="text-sm text-gray-300">
+                    More details appear here on hover.
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project Card 5 -->
+            <a
+              href="project.html"
+              class="group relative block aspect-[4/3] overflow-hidden rounded-lg border border-gray-700 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(239,68,68,0.6)]"
+            >
+              <img
+                src="https://via.placeholder.com/400x300/334155/ffffff?text=Project+Image"
+                alt="Project 5"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+              ></div>
+              <div class="relative flex h-full flex-col justify-end p-6">
+                <div
+                  class="transition-transform duration-500 ease-in-out group-hover:-translate-y-10"
+                >
+                  <h3 class="text-xl font-bold text-white">
+                    Project Title Five
+                  </h3>
+                  <p class="text-sm text-gray-300">
+                    A short teaser for the project.
+                  </p>
+                </div>
+                <div
+                  class="absolute bottom-6 left-6 right-6 translate-y-full opacity-0 transition-all duration-500 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                  <p class="text-sm text-gray-300">
+                    More details appear here on hover.
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project Card 6 -->
+            <a
+              href="project.html"
+              class="group relative block aspect-[4/3] overflow-hidden rounded-lg border border-gray-700 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(239,68,68,0.6)]"
+            >
+              <img
+                src="https://via.placeholder.com/400x300/334155/ffffff?text=Project+Image"
+                alt="Project 6"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+              ></div>
+              <div class="relative flex h-full flex-col justify-end p-6">
+                <div
+                  class="transition-transform duration-500 ease-in-out group-hover:-translate-y-10"
+                >
+                  <h3 class="text-xl font-bold text-white">
+                    Project Title Six
+                  </h3>
+                  <p class="text-sm text-gray-300">
+                    A short teaser for the project.
+                  </p>
+                </div>
+                <div
+                  class="absolute bottom-6 left-6 right-6 translate-y-full opacity-0 transition-all duration-500 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                  <p class="text-sm text-gray-300">
+                    More details appear here on hover.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-      <div class="container mx-auto px-6 text-center">
-        <p>&copy; 2024 John Doe. All Rights Reserved.</p>
+    <footer class="bg-gray-900 border-t border-gray-800">
+      <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+        <p class="text-sm mt-2">Built with passion and a lot of coffee.</p>
       </div>
     </footer>
 
-    <!-- Simple JS for Mobile Menu -->
     <script>
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
+      const heroSection = document.getElementById("about");
+      const card = document.getElementById("card");
 
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+      heroSection.addEventListener("mousemove", (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -5; // Max rotation 5 degrees
+        const rotateY = ((x - centerX) / centerX) * 5; // Max rotation 5 degrees
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      heroSection.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0) rotateY(0)";
       });
     </script>
   </body>
