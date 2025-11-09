@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: Circuit Design - Engineering Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Keyframes for animated gradient background */
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+        25% {
+          background-position: 100% 0%;
+          background-size: 400% 400%;
+        }
+        50% {
+          background-position: 100% 100%;
+          background-size: 500% 500%;
+        }
+        75% {
+          background-position: 0% 100%;
+          background-size: 400% 400%;
+        }
+        100% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-gray-300 font-sans">
+    <!-- Animated Background Layer -->
+    <div
+      class="fixed inset-0 -z-10"
+      style="
+        background: radial-gradient(circle at 10% 90%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 90% 10%, rgba(100, 116, 139, 0.2) 0%, transparent 50%);
+        background-size: 300% 300%;
+        animation: gradient-animation 45s ease infinite;
+      "
+    ></div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-sm shadow-md shadow-black/20"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="./index.html" class="text-2xl font-bold text-white tracking-wider"
+          >PORTFOLIO ZPC</a
+        >
+        <div class="flex space-x-8 text-gray-300">
+          <a href="./index.html#projects" class="hover:text-red-500 transition-colors"
+            >Projects</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Banner Section -->
+      <section class="relative bg-cover bg-center py-24 md:py-32" style="background-image: url('imgs/05_electro/banner.png');">
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
+        
+        <!-- Text Content -->
+        <div class="relative container mx-auto px-6">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Návrh obvodu s Arudinem
+          </h1>
+          <p class="text-lg text-gray-300 max-w-2xl">
+            Malý obvod s Arduino Uno v prostředí TinkerCAD.
+          </p>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <section class="container mx-auto px-6 py-16">
+        <div class="text-gray-400 leading-relaxed">
+          
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">Zvolený obvod</h3>
+              <p class="mb-6 md:mb-0">Pro tento mini projekt jsem se rozhodl realizovat minihru na zařízení Arduino UNO. Samotný obvod je v celku jednoducý. Dvouřádkový LCD display je připojený na dva analogové piny zařízení Arduino Uno, které display zároveň i napájí skrze 5V výstup a GND. K Arduinu je připojené i jedno tlačítko skrze digitální pin.</p>
+              <p class="mb-6 md:mb-0 mt-4">Minihra funguje následujícím způsobem: Hráč ovládá postavičku na LCD displayi. Ta se vždy nachází v druhém sloupci LCD displaye a při stisknutí tlačítka se do jeho puštění přesune z horního řádku na ten spodní. Na konci obrazovky se ve fixních rozestupech objevují překážky, které se pohybují směrem k hráči. Cílem je netrefit překážku.</p>
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/05_electro/schematics.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center mt-24">
+            <div class="md:w-1/2">
+              <img src="imgs/05_electro/game.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">Problikávání displaye</h3>
+              <p class="mb-6 md:mb-0">Jeden zásadní problém, který minihra má, je problikávání (flickering) LCD displaye. To je způsobené tím, že kód musí mnohokrát za sekundu volat lcd.clear(), což vymaže předchozí stav obrazovky. Toto, je poměrně drahá operace a dostupný LCD display není dělaný na to, aby s takovou frekvencí měnil svůj obsah. Zároveň je drahé i vypisování na obrazovku, které se musí pro každý objekt zvlášť zavolat taktéž několikrát za sekundu. Nicméně při vhodných optimalizacích jsem hru dostal do, podle mě, hratelného stavu.</p>
+            </div>
+          </div>
+
+          <p class="mb-6 md:mb-0 mt-24">Kód k minihři si můžete prohlédnout v TinkerCADu, viz následující odkaz:</p>
+          <a href="">bude tu link, az mi TinkerCAD zverejni projekt...</a>
+
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>

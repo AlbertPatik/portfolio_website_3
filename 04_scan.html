@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: FEA - Engineering Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Keyframes for animated gradient background */
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+        25% {
+          background-position: 100% 0%;
+          background-size: 400% 400%;
+        }
+        50% {
+          background-position: 100% 100%;
+          background-size: 500% 500%;
+        }
+        75% {
+          background-position: 0% 100%;
+          background-size: 400% 400%;
+        }
+        100% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-gray-300 font-sans">
+    <!-- Animated Background Layer -->
+    <div
+      class="fixed inset-0 -z-10"
+      style="
+        background: radial-gradient(circle at 10% 90%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 90% 10%, rgba(100, 116, 139, 0.2) 0%, transparent 50%);
+        background-size: 300% 300%;
+        animation: gradient-animation 45s ease infinite;
+      "
+    ></div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-sm shadow-md shadow-black/20"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="./index.html" class="text-2xl font-bold text-white tracking-wider"
+          >PORTFOLIO ZPC</a
+        >
+        <div class="flex space-x-8 text-gray-300">
+          <a href="./index.html#projects" class="hover:text-red-500 transition-colors"
+            >Projects</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Banner Section -->
+      <section class="relative bg-cover bg-center py-24 md:py-32" style="background-image: url('imgs/04_scan/banner.jpg');">
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
+        
+        <!-- Text Content -->
+        <div class="relative container mx-auto px-6">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Ruční skener
+          </h1>
+          <p class="text-lg text-gray-300 max-w-2xl">
+            Cílem projektu bylo naskenovat objekt a následně zpracovat data ze skeneru.
+          </p>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <section class="container mx-auto px-6 py-16">
+        <div class="text-gray-400 leading-relaxed">
+          
+          <h3 class="text-2xl font-bold text-white mb-4">Příprava modelu</h3>
+          <p class="mb-6 md:mb-0">Jelikož byla láhev skleněná, bylo potřeba ji nastříkat sprejem, který ji jednak zneprůhlednil a jednak odstranil odlesky, dva jevy které výrazně stěžují proces skenování. To jsem si ostatně vyzkoušel na vlastní pěst, když jsem zjistil, že část láhve nemám sprejem dobře pokrytou a skener mi ji nechtěl naskenovat. Ve vývsledku jsem kvůli tomuto kousku musel celý proces opakovat. Po nanesení vrstvy spreje jsem na model umístil markery, které skener používá k určení svojí pozice v prostoru.</p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center mt-24">
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/coating.jpg" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/coated.jpg" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/markers.jpg" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center mt-24">
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/thumbnail.jpg" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">Skenování</h3>
+              <p class="mb-6 md:mb-0">Skenování bylo celkem přímočaré. Ruční skener ozařoval lahev laserovými pruhy a v aplikaci se postupně budoval point cloud. Skener průběžně indikoval, jestli je potřeba upravit jeho vzdálenost od lahve. Tento proces se zopakoval ještě jednou, když byla lahev postavená naopak, abychom mohli naskenovat i její dno. Software pak spojil oba point cloudy dohromady a vznikla první, hrubá, digitální verze lahve. V tuto fázi model obsahoval i sken podložky a nějakých jiných ojektů v blízkosti scény. Ty bylo potřeba manuálně odstranit a výsledek vyexportovat jako stl pro další zpracování.</p>
+            </div>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white mb-4 mt-24">Úprava dat</h3>
+          <p class="mb-6 md:mb-0">Následně jsem si stl soubor otevřel v softwareu GOM inspect a provedl následující úpravy.</p>
+          
+          <div class="flex flex-col md:flex-row gap-8 items-center mt-24">
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/01_import_bottle.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/02_add_geometry.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/03_align_coordinate_systems.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+          </div>
+
+          <p class="mb-6 md:mb-0 mt-12">Po importu byla láhev mimo globální souřadnicový systém. Nebyl to zásadní problém, ale přišlo mi vhodné umístit láhev do prostoru trovhu logičtějším způsobem. Začal jsem tedy popisovat primitivní tvary, které na povrchu lahve můžeme najít, dokud jsem neměl dost tvarů pro vytvoření smysluplného lokálního souřadnicového sysému. Ten jsem pak sladil s tím globálním.</p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center mt-24">
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/04_translate_origin.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/05_close_holes.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/06_mesh_after_closing_holes.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+          </div>
+
+          <p class="mb-6 md:mb-0 mt-12">Než jsem se posunul k úpravě povrchu, posunul jsem ještě dno láhve tak, aby procházelo počátkem globálního souřadnicového systému. Pak jsem postupně zaplnil jednotlivé díry (většinou po markerech, ale některé byli i chyby skenování). GOM inspect toto umí automaticky, takže stačilo označit, kde se zhruba díra nachází a zkontrolovat výsledek. Nakonec jsem měl pěkně uzavřený povrch lahve (až na vnitřek hrdla, kde nebylo skenerem možné povrch naskenovat).</p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center mt-24">
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/07_smooth_geometry.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/08_add_top_plane.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/04_scan/09_measure_dimensions.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+          </div>
+
+          <p class="mb-6 md:mb-0 mt-12">Zadání chtělo, abych povrch vyhlail. Mě přišlo, že je povrch hladký dost, nicméně jsem to zkusil, a mezi nevyhlazeným a vyhlazeným povrchem nevidím žádný rozdíl (poslední obrázek předchozí sekce vs první obrázek této sekce). Na závěr jsem si dodefinoval pár dalších primitivních tvarů, které se na povrchu láhve nacházely a pak změřil požadované vzdálenosti.</p>
+
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>

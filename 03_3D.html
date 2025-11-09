@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: 3D Printing - Engineering Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Keyframes for animated gradient background */
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+        25% {
+          background-position: 100% 0%;
+          background-size: 400% 400%;
+        }
+        50% {
+          background-position: 100% 100%;
+          background-size: 500% 500%;
+        }
+        75% {
+          background-position: 0% 100%;
+          background-size: 400% 400%;
+        }
+        100% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-gray-300 font-sans">
+    <!-- Animated Background Layer -->
+    <div
+      class="fixed inset-0 -z-10"
+      style="
+        background: radial-gradient(circle at 10% 90%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 90% 10%, rgba(100, 116, 139, 0.2) 0%, transparent 50%);
+        background-size: 300% 300%;
+        animation: gradient-animation 45s ease infinite;
+      "
+    ></div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-sm shadow-md shadow-black/20"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="./index.html" class="text-2xl font-bold text-white tracking-wider"
+          >PORTFOLIO ZPC</a
+        >
+        <div class="flex space-x-8 text-gray-300">
+          <a href="./index.html#projects" class="hover:text-red-500 transition-colors"
+            >Projects</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Banner Section -->
+      <section class="relative bg-cover bg-center py-24 md:py-32" style="background-image: url('imgs/03_3d/banner.png');">
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
+        
+        <!-- Text Content -->
+        <div class="relative container mx-auto px-6">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            3D Tisk
+          </h1>
+          <p class="text-lg text-gray-300 max-w-2xl">
+            Modelování a tisk ozubeného hřebene s pastorkem.
+          </p>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <section class="container mx-auto px-6 py-16">
+        <div class="text-gray-400 leading-relaxed">
+          
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">Výběr mechanismu</h3>
+              <p class="mb-6 md:mb-0">Jelikož můj závěrečný projekt bude z velké části 3D tištěný, rozhodl jsem se využít tuto příležitost k prozkoumání některých dílů, které u něj budu potřebovat. Konkrétně jsem se rozhodl vymodelovat mechanismus ozubeného hřebene s pastorkem.</p>
+              <p class="mb-6 md:mb-0 mt-4">Projekt se ukázal být velice snadný, protože FreeCAD má skvělou vestavěnou funcki na generování nejrůznějších ozubení, takže větsina mé práce se točila kolem modelování rámu a osy, na které mechanismus upevnit.</p>
+              <p class="mb-6 md:mb-0 mt-4">Chtěl jsem zkusit, jak se bude ozubení chovat s relativně malým modulem (1), podívat se, kolik bude pocitově v systému tření a odladit tolerance. K mému překvapení ale standartní tolerance 0.2 mm perfektně dostačovala na to, aby do sebe jednotlivé díly zapadly a pocitově v systému tření moc nebylo.</p>
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/03_3d/model.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center mt-24">
+            <div class="md:w-1/2">
+              <img src="imgs/03_3d/print.png" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:w-1/2">
+              <img src="imgs/03_3d/final.jpg" alt="" class="rounded-lg shadow-lg w-full">
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>

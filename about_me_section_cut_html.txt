@@ -1,0 +1,114 @@
+<!-- Detailed About Me Section -->
+      <section
+        id="about-detailed"
+        class="min-h-screen flex items-center bg-slate-900"
+      >
+        <div class="container mx-auto flex flex-col gap-16 px-6 max-w-4xl">
+          <!-- Upper Text Section -->
+          <div
+            class="text-gray-400 text-lg space-y-6 text-left md:text-justify"
+          >
+            <p></p>
+            <p></p>
+            <p>
+              V budoucnu bude nejaky text.... Tedka nejake nahodne veci, ktere jakoze strasne umim:
+            </p>
+          </div>
+
+          <!-- Skills Section -->
+          <div>
+            <div
+              class="group relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+            >
+              <div
+                class="flex w-max animate-[infinite-scroll_40s_linear_infinite] group-hover:[animation-play-state:paused]"
+              >
+                <!-- Bubbles (List 1) -->
+                <div
+                  class="flex w-max items-center justify-center space-x-4 px-4"
+                >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >CAD/CAM</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Finite Element Analysis (FEA)</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Python</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >3D Printing</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Thermodynamics</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >MATLAB</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Circuit Design</span
+                  >
+                </div>
+                <!-- Bubbles (List 2 - for seamless loop) -->
+                <div
+                  class="flex w-max items-center justify-center space-x-4 px-4"
+                >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >CAD/CAM</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Finite Element Analysis (FEA)</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Python</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >3D Printing</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Thermodynamics</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >MATLAB</span
+                  >
+                  <span
+                    class="flex-shrink-0 cursor-pointer rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    >Circuit Design</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lower Text Section -->
+          <div
+            class="text-gray-400 text-lg space-y-6 text-left md:text-justify"
+          >
+            <p></p>
+            <p>Dalsi text v buducnu</p>
+          </div>
+
+          <!-- See My Projects Button -->
+          <div class="text-center">
+            <a
+              href="#projects"
+              class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg shadow-red-900/50 hover:bg-red-700 transition-all duration-300 transform hover:scale-105"
+            >
+              Moje projekty
+            </a>
+          </div>
+        </div>
+      </section>

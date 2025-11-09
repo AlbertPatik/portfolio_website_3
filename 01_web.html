@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Detail - Engineering Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Keyframes for animated gradient background */
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+        25% {
+          background-position: 100% 0%;
+          background-size: 400% 400%;
+        }
+        50% {
+          background-position: 100% 100%;
+          background-size: 500% 500%;
+        }
+        75% {
+          background-position: 0% 100%;
+          background-size: 400% 400%;
+        }
+        100% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-gray-300 font-sans">
+    <!-- Animated Background Layer -->
+    <div
+      class="fixed inset-0 -z-10"
+      style="
+        background: radial-gradient(circle at 10% 90%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 90% 10%, rgba(100, 116, 139, 0.2) 0%, transparent 50%);
+        background-size: 300% 300%;
+        animation: gradient-animation 45s ease infinite;
+      "
+    ></div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-sm shadow-md shadow-black/20"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="./index.html" class="text-2xl font-bold text-white tracking-wider"
+          >PORTFOLIO ZPC</a
+        >
+        <div class="flex space-x-8 text-gray-300">
+          <a href="./index.html#projects" class="hover:text-red-500 transition-colors"
+            >Projects</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Banner Section -->
+      <section class="relative bg-cover bg-center py-24 md:py-32" style="background-image: url('./imgs/01_web/project_1_banner.png');">
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
+        
+        <!-- Text Content -->
+        <div class="relative container mx-auto px-6">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Webové stránky
+          </h1>
+          <p class="text-lg text-gray-300 max-w-2xl">
+            Cílem tohoto miniprojektu bylo vytvořit si webové portfolio k prezentaci našich projektů v rámci předmětu ZPC.
+          </p>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <section class="container mx-auto px-6 py-16">
+        <div class="text-gray-400 leading-relaxed">
+        <h3 class="text-2xl font-bold text-white mb-4">Hugo nebo HTML?</h3>
+        <p class="mb-6">Během výuky jsme byli vedeni k použití nástroje Hugo, který při správném nastavení umožňuje relativně jednoduše tvořit webové stránky z markdownových souborů. Jelikož jsem však už měl nějaké zkušenosti s vývojem webových stránek, rozhodl jsem se použít mnohem robustnější sadu technologií – HTML, CSS a TailwindCSS – která není o moc složitější.</p>
+        
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Jak to funguje?</h3>
+        <p class="mb-6">Jelikož jsme stránku měli hostovat pomocí služby Github Pages, bylo potřeba, aby stránka byla statická – tedy není vyžadován server a všechna data se posílají přímo klientovi do jeho prohlížeče.</p>
+        <p class="mb-6">HTML definuje strukturu a obsah stránky. Snažil jsem se vyhnout používání JavaScriptu a veškerou logiku aplikace řešit pouze pomocí vestavěných funkcí HTML a CSS. Kromě použití TailwindCSS jsem žádný další JavaScript nepotřeboval.</p>
+        <p class="mb-6">CSS pak obsahu stránky dává vzhled. Umožňuje měnit barvy, rozložení prvků a mnohé další. I když se z pohledu vývoje webových stránek jedná o poměrně staré technologie, je možné v nich vytvořit velice profesionální stránky bez použití dalších nástrojů.</p>
+        <p class="mb-6">I přesto, že bych si vystačil s HTML a CSS, rozhodl jsem se použít i TailwindCSS, což je nadstavba nad CSS, která umožňuje velice rychle tvořit nádherně vypadající stránky. S čistým CSS by tvorba stejné stránky trvala déle.</p>
+
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">A co dál?</h3>
+        <p class="mb-6">Vpodstatě už stačí jenom správně nastavit automatický deployment na GitHub Pages a portfolio je hotové. Zvolený postup je jednoducý, robustní a veřejně dostupné jazykové modely s ním dokážou velice spolehlivě pomoct, což je obrovská výhoda při práci na jekémkoliv projektu.</p>
+      </div>
+      </section>
+    </main>
+  </body>
+</html>
