@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: Final - Engineering Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Keyframes for animated gradient background */
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+        25% {
+          background-position: 100% 0%;
+          background-size: 400% 400%;
+        }
+        50% {
+          background-position: 100% 100%;
+          background-size: 500% 500%;
+        }
+        75% {
+          background-position: 0% 100%;
+          background-size: 400% 400%;
+        }
+        100% {
+          background-position: 0% 0%;
+          background-size: 300% 300%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-gray-300 font-sans">
+    <div
+      class="fixed inset-0 -z-10"
+      style="
+        background: radial-gradient(circle at 10% 90%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 90% 10%, rgba(100, 116, 139, 0.2) 0%, transparent 50%);
+        background-size: 300% 300%;
+        animation: gradient-animation 45s ease infinite;
+      "
+    ></div>
+
+    <header
+      class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-sm shadow-md shadow-black/20"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="./index.html" class="text-2xl font-bold text-white tracking-wider"
+          >PORTFOLIO ZPC</a
+        >
+        <div class="flex space-x-8 text-gray-300">
+          <a href="./index.html#projects" class="hover:text-red-500 transition-colors"
+            >Projects</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative bg-cover bg-center py-24 md:py-32" style="background-image: url('imgs/06_final/banner.jpeg');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
+        
+        <div class="relative container mx-auto px-6">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Mechanická logická stavebnice
+          </h1>
+          <p class="text-lg text-gray-300 max-w-2xl">
+            Projekt se zabývá vývojem logické stavebnice s mechanicky implementovanými hradly a elektronicky ovládanými vstupy.
+          </p>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-16">
+        <div class="text-gray-400 leading-relaxed space-y-24">
+          
+          <div>
+            <h3 class="text-3xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Definice a cíle projektu</h3>
+            <p class="mb-4">
+              Můj projekt se zabýval vývojem logické stavebnice, která v sobě měla mít mechanicky implementovaná logická hradla. Stavebnice je sama o sobě komplexní produkt, který vyžaduje řešení spousty mechanických převodů, kabelů a dílů zajišťujících komunikaci mezi jednotlivými segmenty.
+            </p>
+            <p>
+              Jako zaměření tohoto semestrálního projektu jsem si proto zvolil podmnožinu konečné stavebnice. Cílem bylo implementovat úplnou sadu logických spojek, elektronicky ovládaný vstup sloužící k zavádění pravdivostních hodnot do obvodu a ověřit funkčnost konceptu na "Minimum Viable Product" (MVP). Původní zadání dokonce počítalo s velkou stavebnicovou deskou, ale jak se ukázalo během vývoje, tento přístup byl zbytečně omezující.
+            </p>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">Slepá ulička č. 1: Ozubená kola a NAND</h3>
+              <p class="mb-4">
+                Na úplném začátku jsem se snažil prozkoumat možnosti řešení a bohužel jsem se příliš brzy upnul na jeden konkrétní princip – ozubení. Tato volba vycházela z požadavku na robustnost. Připadalo mi, že na rozdíl od pružinových systémů, je ozubení vždy "v záběru" a zajistí spolehlivý přenos síly.
+              </p>
+              <p class="mb-4">
+                Mým cílem bylo implementovat Shefferův symbol (NAND). Čelil jsem však dvěma zásadním výzvám: jak mechanicky sečíst dva rotační vstupy a jak rozhodnout, kdy překlopit výstup. Koncepční řešení spočívalo v ozubených kolech, která se mohla pohybovat translačně podél osy otáčení. Obě kola posouvala společnou plošinu, čímž docházelo ke sčítání signálů.
+              </p>
+              <div class="bg-gray-800/50 p-4 rounded-l border-l-4 border-red-500 mt-4">
+                <p class="italic text-gray-300">"Po dvou měsících práce měřila tato součástka asi 30 cm a pořád nebyla hotová. Model začal neuvěřitelně bobtnat a ukázalo se to jako naprosto slepá cesta."</p>
+              </div>
+            </div>
+            <div class="md:w-1/2">
+              <div class="h-96 w-full flex items-center justify-center">
+                <img src="imgs/06_final/v1.png" alt="Původní návrh s ozubením" class="rounded-lg max-h-full max-w-full object-contain">
+              </div>
+              <p class="text-sm text-center mt-2 text-gray-500">Původní, nerealizovaný a nedodělaný koncept ozubeného hradla.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="md:w-1/2">
+              <!-- Carousel Container -->
+              <div class="carousel-instance relative w-full overflow-hidden rounded-lg group">
+                <!-- Slides Wrapper -->
+                <div class="slides-container flex transition-transform duration-500 ease-out h-96">
+                  <!-- Slide 1 -->
+                  <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                    <img src="imgs/06_final/OR_v2.png" alt="Pokus s pružinami" class="max-h-full max-w-full object-contain">
+                  </div>
+                  <!-- Slide 2 (Placeholder) -->
+                  <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                    <img src="imgs/06_final/springs.jpg" alt="Pokus s pružinami" class="max-h-full max-w-full object-contain">
+                  </div>
+                </div>
+                <!-- Dots Navigation -->
+                <div class="dots-container absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"></div>
+              </div>
+              <p class="text-sm text-center mt-2 text-gray-500">Galerie: Prototyp disjunkce (OR) a pokus s pružinami.</p>
+            </div>
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">Slepá ulička č. 2: Pružiny a problém invariantu</h3>
+              <p class="mb-4">
+                Na doporučení vyučujícího jsem opustil ozubení a přešel k táhlovým mechanismům s využitím pružinek pro navracení do původní polohy. Zde jsem narazil na problém s přenosem síly při zapojení více bloků za sebou – pružina jednoho bloku nedokázala "přetlačit" mechanismus dalšího.
+              </p>
+              <p class="mb-4">
+                Pokusil jsem se to vyřešit definicí něčho, co jsem pojmenoval <strong>návrhový invariant</strong>: Každý díl musí spolehlivě zajistit aretaci v pozici 1 a nesmí spoléhat na to, že jeho vstup je v pozici 0. Tento princip fungoval skvěle pro disjunkci (OR), kde stačí, aby jeden vstup "narazil" do výstupu.
+              </p>
+              <p class="mb-4 font-semibold text-red-400">
+                Kde to selhalo? U Negace.
+              </p>
+              <p>
+                Negace je unární operace. Pokud je na vstupu 0, musí být na výstupu 1. Ale podle mého invariantu nesmí být energie pro výstup brána z nulového stavu vstupu. Odkud se tedy vezme energie pro aretaci výstupu? Fyzikálně to v tomto systému nedávalo smysl. Uvědomil jsem si, že pro Negaci tento invariant nikdy fungovat nebude a vzhledem k tomu, že sady, které mě zajímaly, všechny negaci obsahovaly, i tento postup byl ze hry.
+              </p>
+            </div>
+          </div>
+
+          <div>
+              <h3 class="text-2xl font-bold text-white mb-4">Finální koncepce: Stavebnice bez desky</h3>
+              <p class="mb-4">
+                Po předchozích nezdarech jsem se rozhodl pro sadu <strong>Konjunkce (AND)</strong> a <strong>Negace (NOT)</strong>. Z hlediska designu stavebnice jsem musel vyřešit rozměry a spojování. Zavedl jsem standardizovaný "elementární blok" o rozměrech <strong>40 x 80 mm</strong>.
+              </p>
+              <ul class="list-disc list-inside mb-4 space-y-2 ml-4">
+                <li>Každý vstup navíc rozšiřuje blok o jednu šířku.</li>
+                <li><strong>AND</strong> (2 vstupy) má tedy čtvercový tvar (80x80 mm).</li>
+                <li><strong>NOT</strong> (1 vstup) má obdélníkový tvar (40x80 mm).</li>
+              </ul>
+              <p>
+                Původně zamýšlenou velkou podkladovou desku jsem zavrhl. Místo toho jsem vyvinul jednoduché <strong>"U-sponky" (aretační piny)</strong>. Dílky mají po obvodu standardizované dutiny, do kterých se sponky zacvaknou. Je to materiálově efektivní, skladné a funkční. Unikátně jsem vyřešil i propojení signálů – při spojení dvou kostek se do sebe automaticky zaháknou i táhla vstupů a výstupů.
+              </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4">Implementace: Hradlo AND (Konjunkce)</h3>
+            <p class="mb-4">
+              Konjunkce se nakonec ukázala jako překvapivě snadná. Využil jsem mechanismus "přes táhla". Princip je založen na vychylování spojeného pivotu:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h4 class="font-bold text-white mb-2">Logika mechanismu</h4>
+                <p>Pokud je aktivní pouze jeden vstup (Logická 1), pivot se pouze vychýlí do strany (uhne), ale nepohne samotným výstupem. Teprve ve chvíli, kdy jsou aktivní <strong>oba vstupy</strong>, pivot už nemá kam uhnout, opře se a začne tlačit výstup do pozice Logická 1.</p>
+              </div>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h4 class="font-bold text-white mb-2">Role pružin</h4>
+                <p>Pružiny se do návrhu vrátily, ale mají zde pouze pomocnou funkci. Neslouží k logické operaci, ale jen k vracení mechanismu do výchozí polohy pro snadnější manipulaci při rozpojování kostek.</p>
+              </div>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="carousel-instance relative w-full overflow-hidden rounded-lg group mt-8">
+              <!-- Slides Wrapper -->
+              <div class="slides-container flex transition-transform duration-500 ease-out h-96">
+                <!-- Slide 1 -->
+                <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                  <img src="imgs/06_final/AND_1.jpeg" alt="Mechanismus AND 1" class="max-h-full max-w-full object-contain">
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                  <img src="imgs/06_final/AND_2.png" alt="Mechanismus AND 2" class="max-h-full max-w-full object-contain">
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                  <img src="imgs/06_final/AND_evolution.jpg" alt="Mechanismus AND 3" class="max-h-full max-w-full object-contain">
+                </div>
+              </div>
+              <!-- Dots Navigation -->
+              <div class="dots-container absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"></div>
+            </div>
+            <p class="text-sm text-center mt-2 text-gray-500">Galerie: Blok konjunkce (AND), jeho počítačový model a evoluce mechanismu.</p>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">Implementace: Hradlo NOT (Negace)</h3>
+              <p class="mb-4">
+                U negace jsem se vrátil k ozubení, ale v mnohem jednodušší formě. Kvůli úzkému profilu (40mm) nebylo vhodné použít táhla, která by vyžadovala čtvercový půdorys pro pákové mechanismy.
+              </p>
+              <p class="mb-4">
+                <strong>Technické řešení:</strong> Uvnitř bloku jsou dvě lineární ozubení (hřebeny) propojená jedním ozubeným kolem.
+              </p>
+              <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+                <li>Vstup se zasune dovnitř (Logická 1).</li>
+                <li>Tím se roztočí ozubené kolo.</li>
+                <li>Kolo zatáhne výstup dovnitř (Logická 0).</li>
+              </ul>
+              <p>
+                ...jednoduchá mechanická inverze pohybu, která se perfektně vešla do úzkého těla součástky...
+              </p>
+            </div>
+            <div class="md:w-1/2">
+              <!-- Carousel Container -->
+              <div class="carousel-instance relative w-full overflow-hidden rounded-lg group">
+                <!-- Slides Wrapper -->
+                <div class="slides-container flex transition-transform duration-500 ease-out h-96">
+                  <!-- Slide 1 -->
+                  <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                    <img src="imgs/06_final/NOT_2.jpeg" alt="Mechanismus negace" class="max-h-full max-w-full object-contain">
+                  </div>
+                  <!-- Slide 2 (Placeholder) -->
+                  <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                    <img src="imgs/06_final/NOT_1.png" alt="Mechanismus negace" class="max-h-full max-w-full object-contain">
+                  </div>
+                </div>
+                <!-- Dots Navigation -->
+                <div class="dots-container absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"></div>
+              </div>
+              <p class="text-sm text-center mt-2 text-gray-500">Galerie: Mechanismus negace.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">InputBlock - motorem poháněné vstupy</h3>
+              <p class="mb-4">
+                Pro ovládání stavebnice jsem vytvořil vstupní bloky. Koncepčně mají stejný tvar jako Negace (jeden elementární blok). Uvnitř se nachází servomotor, který přes ozubené kolo posouvá lineárním výstupem.
+              </p>
+              <p class="mb-4">
+                <strong>Zjištěné nedostatky:</strong> Použil jsem levná letecká mikroserva s plastovými převody. To byla chyba. Plastové převody "pruží" a nedokážou vyvinout dostatečně tvrdou sílu k překonání odporu, pokud je za sebou zapojeno více mechanických hradel (např. 3 a více). Systém se stává nespolehlivým.
+              </p>
+              <p class="text-gray-500 italic">
+                Do budoucna: Jednoznačně bych investoval do serv s kovovými převody, případně do krokových motorů s externí převodouvkou.
+              </p>
+            </div>
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-4">ControlBlock - ovládá vstupy</h3>
+              <p class="mb-4">
+                Původní koncepce počítala s architekturou typu "Plug & Play". ControlBlock měl sloužit jako centrální stanice, ke které by uživatel mohl volně připojovat InputBlocky jako periferie. Tento přístup by však vyžadoval implementaci robustních konektorů a složitější logiku pro detekci a řízení až osmi vstupů, což se pro účely prototypu ukázalo jako zbytečně komplexní.
+              </p>
+              <p class="mb-4">
+                Zvolil jsem proto pragmatické řešení: InputBlocky jsou ke ControlBlocku připojeny napevno kabely. Uvnitř jednotky běží mikrokontrolér Raspberry Pi Pico s kódem v jazyce MicroPython. Jednoduchá smyčka (main.py) neustále čte stavy přepínačů na panelu a podle nich nastavuje polohu příslušných serv.
+              </p>
+              <p>
+                Výzva s napájením: Původně měl být ControlBlock napájen ze 4x AA baterií. Serva však mají při zátěži tak vysoký proudový odběr, že baterie velmi rychle ztrácely kapacitu. Pro potřeby prezentace jsem přešel na napájení z laboratorního zdroje. Finální produkt by vyžadoval integrovaný síťový adaptér s oddělenými napájecími větvemi pro logiku a výkonové prvky.
+              </p>
+            </div>
+          </div>
+
+          <div>
+              <!-- Carousel Container -->
+              <div class="carousel-instance relative w-full overflow-hidden rounded-lg group mt-8">
+                <!-- Slides Wrapper -->
+                <div class="slides-container flex transition-transform duration-500 ease-out h-96">
+                  <!-- Slide 1 -->
+                  <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                    <img src="imgs/06_final/InputControl_1.jpeg" alt="" class="max-h-full max-w-full object-contain">
+                  </div>
+                  <!-- Slide 2 (Placeholder) -->
+                  <div class="slide w-full flex-shrink-0 flex items-center justify-center h-full">
+                    <img src="imgs/06_final/Input_1.png" alt="" class="max-h-full max-w-full object-contain">
+                  </div>
+                </div>
+                <!-- Dots Navigation -->
+                <div class="dots-container absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"></div>
+              </div>
+              <p class="text-sm text-center mt-2 text-gray-500">Galerie: InputBloky a realizeca v prototypu stavebnice.</p>
+          </div>
+
+          <div class="bg-slate-900/50 p-8 rounded-2xl border border-gray-800">
+            <h3 class="text-3xl font-bold text-white mb-6">Video ukázka</h3>
+            <video class="max-w-full max-h-[80vh] mx-auto rounded-lg shadow-lg" controls>
+              <source src="imgs/06_final/demo_short.mp4" type="video/mp4">
+              Váš prohlížeč nepodporuje video tag.
+            </video>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const carousels = document.querySelectorAll('.carousel-instance');
+        
+        carousels.forEach(carousel => {
+          const slidesContainer = carousel.querySelector('.slides-container');
+          const slides = carousel.querySelectorAll('.slide');
+          const dotsContainer = carousel.querySelector('.dots-container');
+          const totalSlides = slides.length;
+          let currentSlide = 0;
+          let autoSlideInterval;
+
+          // Initialize dots
+          slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `w-3 h-3 rounded-full bg-white transition-opacity duration-300 ${index === 0 ? 'opacity-100' : 'opacity-50 hover:opacity-75'}`;
+            dot.ariaLabel = `Go to slide ${index + 1}`;
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+          });
+
+          const dots = dotsContainer.querySelectorAll('button');
+
+          function updateCarousel() {
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+              dot.className = `w-3 h-3 rounded-full bg-white transition-opacity duration-300 ${index === currentSlide ? 'opacity-100' : 'opacity-50 hover:opacity-75'}`;
+            });
+          }
+
+          function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+          }
+
+          function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetTimer();
+          }
+
+          function resetTimer() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, 5000); // 5 seconds
+          }
+
+          // Start auto-play
+          resetTimer();
+
+          // Pause on hover
+          carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+          carousel.addEventListener('mouseleave', resetTimer);
+        });
+      });
+    </script>
+  </body>
+</html>
